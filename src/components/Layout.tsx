@@ -41,7 +41,7 @@ const Layout: React.FC = () => {
         </div>
       </header>
 
-      <main className="p-4 w-full">
+      <main className="p-10 w-full">
         <Outlet />
       </main>
     </div>

@@ -1,25 +1,136 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+/* globals.css */
+:root {
+  --primary: #4478fc;
+  --border-light: #d1d5db;
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --gradient-start: #4478fc;
+  --gradient-end: #6b5bff;
+}
 
 .p-button:focus {
   box-shadow: none !important;
 }
-.fino-base-button {
-  @apply text-black px-[12px] py-[6px] rounded-[8px]  h-[40px]  text-[14px]  w-max no-underline hover:no-underline;
+.p-inplace-content-close {
+  height: 40px !important;
+  background-color: #4478fc !important;
+}
+.p-inplace .p-inplace-display:not(.p-disabled):hover {
+  background: #eff6ff !important;
+}
+.p-inplace .p-inplace-display {
+  /* background: #eff6ff !important; */
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #4478fc76 !important;
+  height: 36px !important;
+  padding: 3px 6px !important;
+}
+.p-inputtext:enabled:focus {
+  outline: 0 none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border-color: #d1d5db !important;
+}
+.p-inputtext:enabled:hover {
+  border-color: #d1d5db !important;
+}
+.p-inplace .p-inplace-display:focus {
+  box-shadow: none !important;
+}
+.p-dropdown:not(.p-disabled):hover {
+  border-color: #d1d5db !important;
+}
+/* Remove focus ring / box-shadow from PrimeReact Dropdown */
+.p-dropdown:focus,
+.p-dropdown.p-focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #d1d5db !important;
 }
 
-/* Filled Button */
+/* Also remove focus from inner input */
+.p-dropdown .p-inputtext:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #d1d5db !important;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
+  background-color: #eff6ff !important; /* Tailwind gray-100 */
+}
+/* Selected option */
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background-color: #eff6ff !important; /* gray-200 */
+  color: #111827 !important; /* gray-900 */
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover,
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+  background-color: #eff6ff !important;
+  color: inherit !important;
+}
+.p-selectbutton .p-button.p-highlight {
+  background: #026efc16 !important;
+  border-color: #d1d5db !important;
+  color: #4478fc !important;
+  font-weight: bold !important;
+}
+/* .p-selectbutton .p-button {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #4478fc !important;
+} */
+.fino-base-button {
+  @apply text-black px-[12px] py-[6px] rounded-[8px] h-[40px] text-[14px] w-max no-underline hover:no-underline;
+}
+
+/* Filled Button with gradient */
 .fino-primary-button {
-  @apply bg-[#4478fc] text-[#eff6ff]   border-none   hover:bg-[#3d38f5]   hover:text-[#eff6ff] no-underline;
+  @apply bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-[#eff6ff] border-none hover:opacity-90 no-underline;
 }
 
 .fino-secondary-button {
-  @apply bg-[#eff6ff] text-[#4478fc]   border-none   hover:bg-[#eff6ff]   hover:text-[#4478fc] no-underline;
+  @apply bg-[#eff6ff] text-[var(--primary)] border-none hover:bg-[#e0eaff] hover:text-[var(--primary)] no-underline;
 }
 .fino-text-button {
-  @apply hover:bg-[#eff6ff]   hover:text-[#4478fc] no-underline;
+  @apply hover:bg-[#eff6ff] hover:text-[var(--primary)] no-underline;
 }
 
 /* Outlined Button */
 .fino-outlined-button {
-  @apply border border-[#4478fc] text-[#4478fc] hover:bg-[#eff6ff]   hover:text-[#4478fc] no-underline;
+  @apply border border-[var(--primary)] text-[var(--primary)] hover:bg-[#eff6ff] hover:text-[var(--primary)] no-underline;
+}
+
+/* Glassmorphism container */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 1.5rem;
+}
+
+/* Fade‑in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Global body style */
+body {
+  font-family: "Inter", sans-serif;
+  background: #f5f7fa;
+  color: #111827;
 }
